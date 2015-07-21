@@ -1,0 +1,4 @@
+services:
+#    tor.example:
+#        class: TorBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
