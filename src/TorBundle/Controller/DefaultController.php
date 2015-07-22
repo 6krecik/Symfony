@@ -16,6 +16,7 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository('TorBundle:User')->findAll();
+
         return $this->render('TorBundle:Default:index.html.twig', array('product' => $product));
     }
 

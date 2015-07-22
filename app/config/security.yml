@@ -31,7 +31,10 @@ security:
                         default_target_path: /admin
                         always_use_default_target_path: false
                         use_referer: false
-                    logout:       true
+                    logout:
+                       path:   /logout
+                       target: /login
+                       
                     anonymous:    true
 
             # activate different ways to authenticate

@@ -6,13 +6,13 @@
 
     {% for products in product %}
         <tr>
-            <td>{{ products.id }}</td>
-            <td>{{ products.username }}</td>
+            <td>{{ products.getId }}</td>
+            <td>{{ products.getUsername }}</td>
 
             {% set ROLE_USER = 'nadaj' %}
             {% set ROLE_ADMIN = 'nadaj' %}
 
-            {% for role in products.roles %}
+            {% for role in products.getRoles() %}
 
                 {% if role == 'ROLE_USER' %}
                     {% set ROLE_USER = 'odbierz' %}
@@ -25,12 +25,12 @@
 
                 {% endif %}
             {% endfor %}
-            <td><a href="{{ path('tor_zmien', { 'id': products.id, 'action': ROLE_USER, 'role': 'ROLE_USER'}) }}">{{ ROLE_USER }}</a></td>
-            <td><a href="{{ path('tor_zmien', { 'id': products.id, 'action': ROLE_ADMIN, 'role': 'ROLE_ADMIN'}) }}">{{ ROLE_ADMIN }}</a></td>
+            <td><a href="{{ path('tor_zmien', { 'id': products.getId, 'action': ROLE_USER, 'role': 'ROLE_USER'}) }}">{{ ROLE_USER }}</a></td>
+            <td><a href="{{ path('tor_zmien', { 'id': products.getId, 'action': ROLE_ADMIN, 'role': 'ROLE_ADMIN'}) }}">{{ ROLE_ADMIN }}</a></td>
             {% if products.enabled %}
-                <td><a href="{{ path('tor_zablokuj', { 'id': products.id, 'action': 1 }) }}">zablokuj</a></td>
+                <td><a href="{{ path('tor_zablokuj', { 'id': products.getId, 'action': 1 }) }}">zablokuj</a></td>
             {% else %}
-                <td><a href="{{ path('tor_zablokuj', { 'id': products.id, 'action': 0 }) }}">odblokuj</a></td>
+                <td><a href="{{ path('tor_zablokuj', { 'id': products.getId, 'action': 0 }) }}">odblokuj</a></td>
             {% endif %}
     {% endfor %}
     </tr>
