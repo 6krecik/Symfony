@@ -3,9 +3,13 @@ tor_homepage:
     defaults: { _controller: TorBundle:Default:index }
 
 tor_users:
-    path:    /list
+    path:    /admin
     defaults: {_controller: TorBundle:Default:listUsers}
 
 tor_zmien:
-    path:    /zmien/
+    path:    /admin/zmien/{id}/{action}/{role}
     defaults: {_controller: TorBundle:Default:zmien}
+
+tor_zablokuj:
+    path:    /admin/zablokuj/{id}/{action}
+    defaults: {_controller: TorBundle:Default:zablokuj}
