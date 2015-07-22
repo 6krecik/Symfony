@@ -1,3 +1,11 @@
 tor_homepage:
     path:     /hello/{name}
     defaults: { _controller: TorBundle:Default:index }
+
+tor_users:
+    path:    /list
+    defaults: {_controller: TorBundle:Default:listUsers}
+
+tor_zmien:
+    path:    /zmien/
+    defaults: {_controller: TorBundle:Default:zmien}

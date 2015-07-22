@@ -1,1 +1,23 @@
-Hello {{ name }}!
+{% extends 'TorBundle::layout.html.twig' %}
+
+{% block body %}
+<table>
+    <tr><th>Id</th><th>Nazwa</th><th>Admin</th><th>User</th></tr>
+
+    {% for products in product %}
+        <tr>
+            <td>{{ products.id }}</td>
+            <td>{{ products.username }}</td>
+
+        {% for role in products.roles %}
+            {% if role == 'ROLE_USER' %}
+                <td><a href="http://symszko.pl/app_dev.php/zmien">odbierz</a></td>
+            {% else %}
+
+            {% endif %}
+    {% endfor %}
+    {% endfor %}
+    </tr>
+</table>
+
+{% endblock %}
