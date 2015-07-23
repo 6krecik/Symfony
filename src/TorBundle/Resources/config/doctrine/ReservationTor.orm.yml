@@ -1,0 +1,24 @@
+TorBundle\Entity\ReservationTor:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+
+        dataStart:
+            type: datetime
+            column: data_start
+        dateStop:
+            type: datetime
+            column: date_stop
+    manyToOne:
+        userId:
+            targetEntity: User
+            joinColumn:
+            name: user_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

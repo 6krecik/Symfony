@@ -2,6 +2,10 @@ tor_homepage:
     path:     /home
     defaults: { _controller: TorBundle:Tor:index }
 
+tor_sprawdz:
+    path:     /sprawdz
+    defaults: { _controller: TorBundle:Tor:sprawdz }
+
 tor_users:
     path:    /admin
     defaults: {_controller: TorBundle:Default:listUsers}

@@ -1,0 +1,14 @@
+TorBundle\Entity\tes:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        item:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
