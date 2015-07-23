@@ -34,7 +34,7 @@ security:
                     logout:
                        path:   /logout
                        target: /login
-                       
+
                     anonymous:    true
 
             # activate different ways to authenticate

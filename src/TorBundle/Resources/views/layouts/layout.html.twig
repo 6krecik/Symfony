@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Nasze demo{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+{{ knp_menu_render('TorBundle:Builder:mainMenu') }}
+<a href="{{ path('fos_user_security_logout') }}">
+    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+    </a>
+{% block body %}{% endblock %}
+
+</body>
+
+</html>

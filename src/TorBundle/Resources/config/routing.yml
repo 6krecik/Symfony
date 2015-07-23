@@ -1,6 +1,6 @@
 tor_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: TorBundle:Default:index }
+    path:     /home
+    defaults: { _controller: TorBundle:Tor:index }
 
 tor_users:
     path:    /admin
