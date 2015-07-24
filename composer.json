@@ -22,7 +22,9 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "raulfraile/ladybug-bundle": "~1.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "knplabs/knp-menu-bundle": "~2"
+        "knplabs/knp-menu-bundle": "~2",
+        "friendsofsymfony/jsrouting-bundle": "^1.5",
+        "adesigns/calendar-bundle": "^1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

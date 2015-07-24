@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Nasze demo{% endblock %}</title>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
     {% block stylesheets %}{% endblock %}
 
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
 </head>
 <body>
 {{ knp_menu_render('TorBundle:Builder:mainMenu') }}
