@@ -3,9 +3,16 @@
 parameters:
 #    parameter_name: value
 
+#services:
+#    torbundle.calendar_listener:
+#            class: TorBundle\EventListener\CalendarEventListener
+#            arguments: [type: service, id: doctrine.orm.entity_manager ]
+#            tags:
+#                -  { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
+
 services:
-    torbundle.calendar_listener:
-            class: TorBundle\EventListener\CalendarEventListener
-            arguments: [type: service, id: doctrine.orm.entity_manager ]
-            tags:
-                -  { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
+    acme.demobundle.calendar_listener:
+        class: TorBundle\EventListener\CalendarEventListener
+        tags:
+            - { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
+        arguments: ['@doctrine.orm.entity_manager']

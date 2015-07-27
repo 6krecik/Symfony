@@ -12,6 +12,8 @@ public function mainMenu(FactoryInterface $factory, array $options)
 $menu = $factory->createItem('root');
 
 $menu->addChild('Users', array('route' => 'tor_users'));
+$menu->addChild('Calendar', array('route' => 'tor_homepage'));
+
 
 
 return $menu;

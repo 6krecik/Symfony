@@ -1,0 +1,17 @@
+{% extends 'TorBundle:layouts:layout.html.twig' %}
+
+{% block body %}
+{% set godz=0 %}
+    <select required>
+    <option value="">Wybierz godzinę rozpoczęcia rezeracji</option>
+    {% for  i in range(7, 19) %}
+    <option value="{{ i }}:00">{{ i }}:00</option>
+        {% endfor %}
+</select>
+<select required>
+    <option value="">Wybierz godzinę zakonczenia rezeracji</option>
+    {% for  i in range(9, 21) %}
+        <option value="{{ i }}:00">{{ i }}:00</option>
+    {% endfor %}
+</select>
+{% endblock %}
