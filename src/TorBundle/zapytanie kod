@@ -1,0 +1,1 @@
+SELECT * FROM `reservation_tor` WHERE (`data_start` < STR_TO_DATE('2015-07-15 06:00:0','%Y-%m-%d %h:%i:%s') and `date_stop` > STR_TO_DATE('2015-07-15 06:00:0','%Y-%m-%d %h:%i:%s')) or (`data_start` < STR_TO_DATE('2015-07-15 06:00:0','%Y-%m-%d %h:%i:%s') and `date_stop` > STR_TO_DATE('2015-07-15 06:00:0','%Y-%m-%d %h:%i:%s'))

@@ -27,9 +27,7 @@ $(function () {
 
                 window.open(Routing.generate('tor_rezerwuj', { date: date }), 'window name', 'width=300,height=300,scrollbars=yes');
             } else {
-                alert('Clicked on the slot: ' + date);
-
-                console.log(date)
+                window.open(Routing.generate('tor_rezerwuj', { date: date }), 'window name', 'width=300,height=300,scrollbars=yes');
             }
         },
 
