@@ -5,6 +5,7 @@ $(function () {
     var y = date.getFullYear();
 
     $('#calendar-holder').fullCalendar({
+
         header: {
             left: 'prev, next, today',
             center: 'title',
@@ -20,6 +21,18 @@ $(function () {
             // for all other views
             '': 'H:mm{ - H:mm}'         // 7p
         },
+
+        monthNames: ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'],
+        monthNamesShort: ['Sty','Lut','Mar','Kwi','Maj','Cze','Lip','Sie','Wrz','Paź','Lis','Gru'],
+        dayNames: ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'],
+        dayNamesShort: ['Nie','Pon','Wto','Śro','Czw','Pią','Sob'],
+        buttonText: {
+            today: 'Dzisiaj',
+            month: 'Miesiąc',
+            day: 'Dzień',
+            week: 'Tydzień'
+        },
+
         dayClick: function(date, allDay, jsEvent, view) {
 
             if (allDay) {
@@ -29,6 +42,10 @@ $(function () {
             } else {
                 window.open(Routing.generate('tor_rezerwuj', { date: date }), 'window name', 'width=300,height=300,scrollbars=yes');
             }
+        },
+
+        viewDisplay: function (view) {
+            $('.fc-content').find('td').css('cursor', 'pointer');
         },
 
 

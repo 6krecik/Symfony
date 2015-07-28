@@ -1,0 +1,20 @@
+TorBundle\Entity\Instructors:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        imie:
+            type: string
+            length: 255
+        nazwisko:
+            type: string
+            length: 255
+        zdjecie:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,21 +1,28 @@
+tor_home:
+    path:     /
+    defaults: { _controller: TorBundle:Default:index }
+    options:
+            expose: true
 
 
-tor_homepage:
+tor_calendar:
     path:     /home
     defaults: { _controller: TorBundle:Tor:index }
     options:
             expose: true
-tor_sprawdz:
-    path:     /sprawdz/{date}
-    defaults: { _controller: TorBundle:Tor:sprawdz }
-    options:
-                expose: true
 
 tor_rezerwuj:
     path:     /rezerwuj/{date}
     defaults: { _controller: TorBundle:Tor:rezerwuj }
     options:
                 expose: true
+
+tor_instructors:
+    path:     /instruktorzy/
+    defaults: { _controller: TorBundle:Tor:listInstructors }
+    options:
+                expose: true
+
 tor_users:
     path:    /admin
     defaults: {_controller: TorBundle:Default:listUsers}

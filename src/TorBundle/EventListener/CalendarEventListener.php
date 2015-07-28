@@ -49,7 +49,7 @@ $eventEntity = new EventEntity((string) $companyEvent->getUserId(), $companyEven
 
 //optional calendar event settings
 $eventEntity->setAllDay(false); // default is false, set to true if this is an all day event
-$eventEntity->setBgColor('#FF0000'); //set the background color of the event's label
+$eventEntity->setBgColor('#FC2A0A'); //set the background color of the event's label
 $eventEntity->setFgColor('#FFFFFF'); //set the foreground color of the event's label
 //$eventEntity->setUrl('http://www.google.com'); // url to send user to when event label is clicked
 $eventEntity->setCssClass('my-custom-class'); // a custom class you may want to apply to event labels

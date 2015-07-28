@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Nasze demo{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bundles/tor/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/tor/css/style.css') }}" />
+    <script type="text/javascript" src="{{ asset('bundles/tor/js/jquery-1.11.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/tor/js/bootstrap.min.js') }}"></script>
     {% block stylesheets %}{% endblock %}
 
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-{{ knp_menu_render('TorBundle:Builder:mainMenu') }}
-<a href="{{ path('fos_user_security_logout') }}">
-    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-    </a>
+<nav class="navbar navbar-default ">
+    <div class="container">
+
+        {{ knp_menu_render('TorBundle:Builder:mainMenu') }}
+
+    </div>
+
+</nav>
 {% block body %}{% endblock %}
 
 </body>

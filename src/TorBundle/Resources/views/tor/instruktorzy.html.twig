@@ -1,0 +1,18 @@
+{% extends 'TorBundle:layouts:torLayout.html.twig' %}
+
+
+{% block body %}
+    <table border="1">
+    <tr>
+    <th>Imie</th>
+    <th>Nazwisko</th>
+    </tr>
+{% for instructor in instructors %}
+<tr>
+    <td>{{ instructor.getImie() }}</td>
+    <td>{{ instructor.getNazwisko() }}</td>
+</tr>
+
+{% endfor %}
+    </table>
+{% endblock %}
