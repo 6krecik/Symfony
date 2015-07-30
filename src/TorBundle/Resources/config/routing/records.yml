@@ -1,0 +1,32 @@
+records:
+    path:     /
+    defaults: { _controller: "TorBundle:Records:index" }
+
+
+
+records_show:
+    path:     /{id}/show
+    defaults: { _controller: "TorBundle:Records:show" }
+
+records_new:
+    path:     /new
+    defaults: { _controller: "TorBundle:Records:new" }
+
+records_create:
+    path:     /create
+    defaults: { _controller: "TorBundle:Records:create" }
+    methods:  POST
+
+records_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "TorBundle:Records:edit" }
+
+records_update:
+    path:     /{id}/update
+    defaults: { _controller: "TorBundle:Records:update" }
+    methods:  [POST, PUT]
+
+records_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "TorBundle:Records:delete" }
+    methods:  [POST, DELETE]

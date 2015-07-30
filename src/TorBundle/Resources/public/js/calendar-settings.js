@@ -1,3 +1,8 @@
+
+ function wyswietl(param) {
+
+
+
 $(function () {
     var date = new Date();
     var d = date.getDate();
@@ -38,9 +43,9 @@ $(function () {
             if (allDay) {
                 //alert('Clicked on the entire day: ' + date);
 
-                window.open(Routing.generate('tor_rezerwuj', { date: date }), 'window name', 'width=300,height=300,scrollbars=yes');
+                window.open(Routing.generate('tor_rezerwuj', { date: date, param: param }), 'window name', 'width=300,height=300,scrollbars=yes');
             } else {
-                window.open(Routing.generate('tor_rezerwuj', { date: date }), 'window name', 'width=300,height=300,scrollbars=yes');
+                window.open(Routing.generate('tor_rezerwuj', { date: date, param: param }), 'window name', 'width=300,height=300,scrollbars=yes');
             }
         },
 
@@ -53,8 +58,11 @@ $(function () {
             {
                 url: Routing.generate('fullcalendar_loader'),
                 type: 'POST',
+
+
                 // A way to add custom filters to your event listeners
                 data: {
+                    param: param
                 },
                 error: function() {
                    //alert('There was an error while fetching Google Calendar!');
@@ -66,3 +74,4 @@ $(function () {
 
     });
 });
+ }

@@ -10,6 +10,7 @@ namespace TorBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use TorBundle\Entity\InstructorsReservation;
 use TorBundle\Entity\ReservationTor;
 
 class TorController extends Controller
@@ -20,6 +21,11 @@ class TorController extends Controller
         return $this->render('TorBundle:tor:index.html.twig', array());
     }
 
+    public function homeAction()
+    {
+        return $this->render('TorBundle:tor:home.html.twig', array());
+    }
+
     public function listInstructorsAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -27,9 +33,14 @@ class TorController extends Controller
         return $this->render('TorBundle:tor:instruktorzy.html.twig', array('instructors' => $instructors));
     }
 
+    public function instructorCalendarAction($id)
+    {
+        return $this->render('TorBundle:tor:instructorCalendar.html.twig', array('id' => $id));
+    }
 
 
-    public function rezerwujAction($date,Request $request)
+
+    public function rezerwujAction($date,$param,Request $request)
     {
         $date = substr($date, 4, 11);
 
@@ -89,6 +100,7 @@ class TorController extends Controller
             }
             else
             {
+                if($param == 'calendar'){
                 $em = $this->getDoctrine()->getManager();
                 $torEvents = $em->getRepository('TorBundle:ReservationTor')
                     ->createQueryBuilder('tor_events')
@@ -97,7 +109,7 @@ class TorController extends Controller
                     ->setParameter('endDate', $data_zakonczenia)
                     ->getQuery()->getResult();
 
-                if(empty($torEvents))
+                if (empty($torEvents))
                 {
                     echo 'nic nie ma';
                     $reservation = new ReservationTor();
@@ -110,11 +122,41 @@ class TorController extends Controller
                     $zamknij = true;
 
 
-
-                }
-                else
+                } else
                 {
                     echo 'Podany czas jest już zarezerwowany';
+                }
+            }else
+                {
+
+                    $em = $this->getDoctrine()->getManager();
+                    $torEvents = $em->getRepository('TorBundle:InstructorsReservation')
+                        ->createQueryBuilder('tor_events')
+                        ->where('(tor_events.idInstructor = :param) and ((tor_events.dateStart <= :startDate and tor_events.dateStop > :startDate) or (tor_events.dateStart < :endDate and tor_events.dateStop >= :endDate) or (tor_events.dateStart > :startDate and tor_events.dateStop < :endDate))')
+                        ->setParameter('startDate', $data_rozpoczecia)
+                        ->setParameter('endDate', $data_zakonczenia)
+                        ->setParameter('param', $param)
+                        ->getQuery()->getResult();
+
+                    if (empty($torEvents))
+                    {
+                        echo 'nic nie ma';
+                        $reservation = new InstructorsReservation();
+                        $reservation->setDateStart($data_rozpoczecia);
+                        $reservation->setDateStop($data_zakonczenia);
+                        $user = $this->getUser();
+                        $reservation->setIdUser($user);
+                        $instructor = $em->getRepository('TorBundle:Instructors')->find($param);
+                        $reservation->setIdInstructor($instructor);
+                        $em->persist($reservation);
+                        $em->flush();
+                        $zamknij = true;
+
+
+                    } else
+                    {
+                        ld($torEvents);
+                    }
                 }
 
             }

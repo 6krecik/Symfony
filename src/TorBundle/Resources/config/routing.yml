@@ -1,6 +1,14 @@
+tor_records:
+    resource: "@TorBundle/Resources/config/routing/records.yml"
+    prefix:   admin/records
+
+tor_records_user:
+    path:     /recordsuser
+    defaults: { _controller: "TorBundle:Records:indexUser" }
+
 tor_home:
     path:     /
-    defaults: { _controller: TorBundle:Default:index }
+    defaults: { _controller: TorBundle:Tor:home }
     options:
             expose: true
 
@@ -12,8 +20,14 @@ tor_calendar:
             expose: true
 
 tor_rezerwuj:
-    path:     /rezerwuj/{date}
+    path:     /rezerwuj/{date}/{param}
     defaults: { _controller: TorBundle:Tor:rezerwuj }
+    options:
+                expose: true
+
+tor_instructorCalendar:
+    path:     /instruktor/{id}
+    defaults: { _controller: TorBundle:Tor:instructorCalendar }
     options:
                 expose: true
 
@@ -23,8 +37,12 @@ tor_instructors:
     options:
                 expose: true
 
+tor_panel:
+    path:    admin/panel
+    defaults: {_controller: TorBundle:Default:panel}
+
 tor_users:
-    path:    /admin
+    path:    admin/users
     defaults: {_controller: TorBundle:Default:listUsers}
 
 tor_zmien:

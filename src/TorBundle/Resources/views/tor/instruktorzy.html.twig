@@ -6,11 +6,14 @@
     <tr>
     <th>Imie</th>
     <th>Nazwisko</th>
+    <th>Terminarz</th>
     </tr>
 {% for instructor in instructors %}
 <tr>
     <td>{{ instructor.getImie() }}</td>
     <td>{{ instructor.getNazwisko() }}</td>
+    <td><a href="{{ path('tor_instructorCalendar', { 'id': instructor.getId}) }}">Terminarz</a></td>
+
 </tr>
 
 {% endfor %}

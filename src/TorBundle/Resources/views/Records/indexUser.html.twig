@@ -1,0 +1,30 @@
+{% extends 'TorBundle:layouts:torLayout.html.twig' %}
+
+{% block body -%}
+    <h1>Records list</h1>
+
+    <table class="records_list">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Czas</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.imie }}</td>
+                <td>{{ entity.nazwisko }}</td>
+                <td>{{ entity.czas | date('h:i') }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

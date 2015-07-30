@@ -6,9 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+
+
+
+    public function panelAction()
     {
-        return $this->render('TorBundle:Default:home.html.twig', array());
+        return $this->render('TorBundle:Default:panel.html.twig', array());
     }
 
     public function listUsersAction()

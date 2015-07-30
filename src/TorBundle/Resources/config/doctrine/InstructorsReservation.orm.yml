@@ -1,0 +1,30 @@
+TorBundle\Entity\InstructorsReservation:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+
+        dateStart:
+            type: datetime
+            column: date_start
+        dateStop:
+            type: datetime
+            column: date_stop
+    manyToOne:
+            idUser:
+                targetEntity: User
+                joinColumn:
+                  name: id_user
+                  referencedColumnName: id
+            idInstructor:
+                targetEntity: Instructors
+                joinColumn:
+                  name: id_instructor
+                  referencedColumnName: id
+
+    lifecycleCallbacks: {  }

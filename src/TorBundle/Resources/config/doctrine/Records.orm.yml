@@ -1,0 +1,19 @@
+TorBundle\Entity\Records:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        imie:
+            type: string
+            length: 255
+        nazwisko:
+            type: string
+            length: 255
+        czas:
+            type: time
+    lifecycleCallbacks: {  }

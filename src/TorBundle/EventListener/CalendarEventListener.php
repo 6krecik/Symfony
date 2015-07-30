@@ -24,14 +24,26 @@ $endDate = $calendarEvent->getEndDatetime();
 // Use the filter in your query for example
 
 $request = $calendarEvent->getRequest();
-//$filter = $request->get('filter');
-
+$filter = $request->get('param');
 
 // load events using your custom logic here,
 // for instance, retrieving events from a repository
+if($filter == 'calendar')
+{
+    $companyEvents = $this->entityManager->getRepository('TorBundle:ReservationTor')->findAll();
+}else
+{
+   // $companyEvents = $this->entityManager->getRepository('TorBundle:InstructorsReservation')->findAll();
 
-$companyEvents = $this->entityManager->getRepository('TorBundle:ReservationTor')->findAll();
 
+
+    $companyEvents = $this->entityManager->getRepository('TorBundle:InstructorsReservation')
+        ->createQueryBuilder('instructor_events')
+        ->where('instructor_events.idInstructor = :id')
+        ->setParameter('id', $filter)
+        ->getQuery()->getResult();
+
+}
 
 // $companyEvents and $companyEvent in this example
 // represent entities from your database, NOT instances of EventEntity
@@ -43,9 +55,13 @@ $companyEvents = $this->entityManager->getRepository('TorBundle:ReservationTor')
 foreach($companyEvents as $companyEvent) {
 
 // create an event with a start/end time, or an all day event
-
-$eventEntity = new EventEntity((string) $companyEvent->getUserId(), $companyEvent->getDataStart(), $companyEvent->getDateStop());
-
+    if($filter == 0)
+    {
+        $eventEntity = new EventEntity((string)$companyEvent->getUserId(), $companyEvent->getDataStart(), $companyEvent->getDateStop());
+    }else
+    {
+        $eventEntity = new EventEntity((string)$companyEvent->getIdUser(), $companyEvent->getDateStart(), $companyEvent->getDateStop());
+    }
 
 //optional calendar event settings
 $eventEntity->setAllDay(false); // default is false, set to true if this is an all day event
